@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DisasterWatch</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f2f5;
+    }
+    header {
+      background: #0052cc;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .section {
+      padding: 2rem;
+      text-align: center;
+    }
+    .report-btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: #ff5722;
+      color: white;
+      font-size: 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .report-btn:hover {
+      background: #e64a19;
+    }
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background: #0052cc;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #003d99;
+    }
+    #map {
+      height: 300px;
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Homepage Section -->
+<header>
+  <h1>DisasterWatch</h1>
+  <p>Stay informed. Stay safe.</p>
+</header>
+
+<div class="section">
+  <h2>Welcome to DisasterWatch</h2>
+  <p>Track and report disasters in real-time.</p>
+  <a href="#report-section" class="report-btn">Report Incident</a>
+</div>
+
+<!-- How It Works -->
+<div class="section" style="background:#ffffff;">
+  <h2>How It Works</h2>
+  <p>1. Detect disaster alerts</p>
+  <p>2. Share real-time information</p>
+  <p>3. Help people stay safe</p>
+</div>
+
+<!-- Features -->
+<div class="section" style="background:#e0e7ff;">
+  <h2>Features</h2>
+  <p>Live updates, community reporting, and interactive map.</p>
+</div>
+
+<!-- Report Incident Section -->
+<div id="report-section" class="section" style="background:#ffffff;">
+  <h2>Report an Incident</h2>
+  <form id="incidentForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <textarea id="description" placeholder="Describe the incident" required></textarea>
+    <button type="submit">Submit Report</button>
+  </form>
+  <div id="map"></div>
+</div>
+
+<script>
+  // Map setup
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: { lat: 20.5937, lng: 78.9629 } // Center on India
+    });
+
+    // Handle form submission
+    document.getElementById('incidentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Incident reported successfully!');
+    });
+  }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+
+</body>
+</html>
